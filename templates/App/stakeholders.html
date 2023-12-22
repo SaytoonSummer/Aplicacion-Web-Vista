@@ -1,0 +1,124 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stakeholders</title>
+</head>
+
+<body style="margin: 0; font-family: Arial; background: white; height: 100vh; position: relative;">
+
+    <div style="width: 304px; height: 100%; position: absolute; background: white;"></div>
+
+    <div style="width: 1136px; height: 88px; left: 1440px; top: 0; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #FFFCF2;"></div>
+
+    <img style="width: 96px; height: 98px; left: 104px; top: 39px; position: absolute;" src="{% static 'img/logo.png' %}" />
+
+    <a href="{% url 'inventory' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 207px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px;" src="{% static 'img/iconinventory1.png' %}" alt="Productos">
+            <span style="font-size: 25px; word-wrap: break-word;">Productos</span>
+        </div>
+    </a>
+    <a href="{% url 'stakeholders' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 250px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px;" src="{% static 'img/iconinventory2.png' %}" alt="Proveedores">
+            <span style="font-size: 25px; word-wrap: break-word;">Proveedores</span>
+        </div>
+    </a>
+    <a href="{% url 'ventas' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 293px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px; margin-bottom: 1px;" src="{% static 'img/iconinventory4.png' %}" alt="Ventas">
+            <span style="font-size: 25px; word-wrap: break-word;">Ventas</span>
+        </div>
+    </a>
+    <a href="{% url 'support' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 333px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px;" src="{% static 'img/iconinventory3.png' %}" alt="Soporte">
+            <span style="font-size: 25px; word-wrap: break-word;">Soporte</span>
+        </div>
+    </a>
+
+    <a href="{% url 'user' %}">
+        <img style="width: 39px; height: 43px; left: 1332px; top: 23px; position: absolute;" src="{% static 'img/user.png' %}" />
+    </a>
+    <div style="width: 312px; height: 22px; left: 957px; top: 33px; position: absolute;">
+        <img style="width: 14px; height: 11px; left: 8px; top: 5px; position: absolute;" src="{% static 'img/search.png' %}" />
+        <input id="searchInput" type="text" name="search" placeholder="Buscar..." style="width: 278px; height: 20px; left: 28px; top: 2px; position: absolute; border: none; outline: none; font-size: 13px; font-family: Arial; font-weight: 300; word-wrap: break-word;" />
+    </div>
+
+
+    <div style="width: 89px; height: 17px; left: 102px; top: 952px; position: absolute; text-align: center; color: #EB5E28; font-size: 13px; word-wrap: break-word;">
+        <a href="{% url 'login' %}" style="text-decoration: none; color: #EB5E28;">Cerrar Sesión</a>
+    </div>
+
+
+    <div style="width: 891px; height: 758px; left: 303px; top: 144px; position: absolute; background: white; border-radius: 13px; border: 1px #EB5E28 solid; overflow-y: auto;">
+
+
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr style="border-bottom: 1px solid #EB5E28;">
+            <th style="padding: 10px; text-align: left;">Nombre del Proveedor</th>
+            <th style="padding: 10px; text-align: left;">Dirección</th>
+            <th style="padding: 10px; text-align: left;">Teléfono</th>
+            <th style="padding: 10px; text-align: left;">Email</th>
+            <th style="padding: 10px; text-align: left;">Acciones</th> 
+        </tr>
+
+
+        {% for proveedor in proveedores %}
+        <tr data-nombre_proveedor="{{ proveedor.nombre_proveedor }}" data-direccion="{{ proveedor.direccion }}" data-telefono="{{ proveedor.telefono }}" data-email="{{ proveedor.email }}" style="border-bottom: 1px solid #EB5E28;">
+            <td style="padding: 10px;">{{ proveedor.nombre_proveedor }}</td>
+            <td style="padding: 10px;">{{ proveedor.direccion }}</td>
+            <td style="padding: 10px;">{{ proveedor.telefono }}</td>
+            <td style="padding: 10px;">{{ proveedor.email }}</td>
+            <td style="padding: 10px;">
+                <a href="{% url 'updatesh' proveedor.id %}" style="text-decoration: none; color: #EB5E28;">Editar</a>
+                |
+                <a href="{% url 'deletesh' proveedor.id %}" style="text-decoration: none; color: #EB5E28;">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    </div>
+
+    <a href="{% url 'inputsh' %}" style="text-decoration: none; color: #EB5E28;">
+        <div style="width: 149px; height: 22px; left: 319px; top: 105px; position: absolute; border-radius: 6px; border: 1px #EB5E28 solid;">
+            <div style="width: 100%; height: 100%; text-align: center; font-size: 13px; font-weight: 300; word-wrap: break-word;">Agregar Proveedor</div>
+        </div>
+    </a>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function () {
+            var searchValue = this.value.toLowerCase();
+
+            var rows = document.querySelectorAll('tr[data-nombre_proveedor]');
+
+
+            rows.forEach(function (row) {
+                var nombreProveedor = row.getAttribute('data-nombre_proveedor').toLowerCase();
+                var direccion = row.getAttribute('data-direccion').toLowerCase();
+                var telefono = row.getAttribute('data-telefono').toLowerCase();
+                var email = row.getAttribute('data-email').toLowerCase();
+
+                if (
+                    nombreProveedor.includes(searchValue) ||
+                    direccion.includes(searchValue) ||
+                    telefono.includes(searchValue) ||
+                    email.includes(searchValue)
+                ) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

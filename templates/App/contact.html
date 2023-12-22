@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #title {
+            width: 446px;
+            height: 33px;
+            text-align: center;
+            color: #EB5E28;
+            font-size: 28px;
+            font-family: Arial;
+            font-weight: 400;
+            word-wrap: break-word;
+            margin-bottom: 10px; 
+        }
+
+        #subtitle {
+            width: 240px;
+            height: 43px;
+            text-align: center;
+            color: #252422;
+            font-size: 28px;
+            font-family: Arial;
+            font-weight: 500;
+            word-wrap: break-word;
+            margin-bottom: 20px;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 10px; 
+            flex-wrap: wrap;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 10px;
+            text-align: center;
+        }
+
+        .contact div {
+            margin: 5px 0;
+        }
+
+        .whatsapp-link {
+            color: #25D366; 
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Arial;
+        }
+
+        .whatsapp-link:hover {
+            text-decoration: underline;
+            font-family: Arial;
+        }
+
+        #bottom-box {
+            width: 230px;
+            height: 230px;
+            background: #EB5E28;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 20px; 
+        }
+
+        #bottom-image {
+            width: 239px;
+            height: 193px;
+            position: absolute;
+            bottom: 10px;
+        }
+        #backButton {
+            width: 100px;
+            height: 40px;
+            background: #EB5E28;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">VinylVistaProyect@Vista.com</div>
+    <div id="subtitle">¡Contáctanos!</div>
+
+    <div class="contact-container">
+        <div class="contact">
+            <div style="width: 278px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 400; word-wrap: break-word">Felipe Jeldez</div>
+            <div style="width: 325px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 275; word-wrap: break-word">+569 4598 1723</div>
+            <a class="whatsapp-link" href="https://wa.me/56945981723" target="_blank">Abrir Contacto</a>
+            <img style="width: 88px; height: 93.30px;" src="{% static 'img/iconcontact1.png' %}" />
+        </div>
+
+        <div class="contact">
+            <div style="width: 339px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 400; word-wrap: break-word">Kevin Carmona</div>
+            <div style="width: 325px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 275; word-wrap: break-word">+569 4598 1723</div>
+            <a class="whatsapp-link" href="https://wa.me/56945981723" target="_blank">Abrir Contacto</a>
+            <img style="width: 88px; height: 93.30px;" src="{% static 'img/iconcontact1.png' %}" />
+        </div>
+
+        <div class="contact">
+            <div style="width: 260px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 400; word-wrap: break-word">Jordi Cortes</div>
+            <div style="width: 325px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 275; word-wrap: break-word">+569 4598 1723</div>
+            <a class="whatsapp-link" href="https://wa.me/56945981723" target="_blank">Abrir Contacto</a>
+            <img style="width: 88px; height: 93.30px;" src="{% static 'img/iconcontact1.png' %}" />
+        </div>
+    </div>
+
+    <div id="bottom-box"></div>
+    <img id="bottom-image" src="{% static 'img/phone.png' %}" />
+    <button id="backButton" onclick="goBack()">Volver</button>
+</body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+</html>

@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <style>
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Arial;
+        }
+
+        .whatsapp-link:hover {
+            text-decoration: underline;
+            font-family: Arial;
+        }
+
+        .contact-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-wrap: wrap;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            text-align: center;
+            width: 300px; 
+        }
+
+        .contact div {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; font-family: Arial; background: white; height: 100vh; position: relative;">
+
+    <div style="width: 304px; height: 100%; position: absolute; background: white;"></div>
+
+    <div style="width: 1136px; height: 88px; left: 1440px; top: 0; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #FFFCF2;"></div>
+
+    <img style="width: 96px; height: 98px; left: 104px; top: 39px; position: absolute;" src="{% static 'img/logo.png' %}" />
+
+    <a href="{% url 'inventory' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 207px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px;" src="{% static 'img/iconinventory1.png' %}" alt="Productos">
+            <span style="font-size: 25px; word-wrap: break-word;">Productos</span>
+        </div>
+    </a>
+    <a href="{% url 'stakeholders' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 250px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px;" src="{% static 'img/iconinventory2.png' %}" alt="Proveedores">
+            <span style="font-size: 25px; word-wrap: break-word;">Proveedores</span>
+        </div>
+    </a>
+    <a href="{% url 'ventas' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 293px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px; margin-bottom: 1px;" src="{% static 'img/iconinventory4.png' %}" alt="Ventas">
+            <span style="font-size: 25px; word-wrap: break-word;">Ventas</span>
+        </div>
+    </a>
+    <a href="{% url 'support' %}" style="text-decoration: none; color: #252422;">
+        <div style="position: absolute; left: 92px; top: 333px;">
+            <img style="width: 23px; height: 23px; margin-right: 5px;" src="{% static 'img/iconinventory3.png' %}" alt="Soporte">
+            <span style="font-size: 25px; word-wrap: break-word;">Soporte</span>
+        </div>
+    </a>
+
+    <a href="{% url 'user' %}">
+        <img style="width: 39px; height: 43px; left: 1332px; top: 23px; position: absolute;" src="{% static 'img/user.png' %}" />
+    </a>
+
+    <div style="width: 89px; height: 17px; left: 102px; top: 952px; position: absolute; text-align: center; color: #EB5E28; font-size: 13px; word-wrap: break-word;">
+        <a href="{% url 'login' %}" style="text-decoration: none; color: #EB5E28;">Cerrar Sesión</a>
+    </div>
+
+    <div style="width: 891px; height: 758px; left: 303px; top: 144px; position: absolute; background: white; border-radius: 13px; border: 1px #EB5E28 solid; overflow-y: auto;">
+        <div class="contact-container">
+            <div class="contact">
+                <div style="width: 278px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 400; word-wrap: break-word">Felipe Jeldez</div>
+                <div style="width: 325px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 275; word-wrap: break-word">+569 4598 1723</div>
+                <a class="whatsapp-link" href="https://wa.me/56945981723" target="_blank">Abrir Contacto</a>
+                <img style="width: 88px; height: 93.30px;" src="{% static 'img/iconcontact1.png' %}" />
+            </div>
+
+            <div class="contact">
+                <div style="width: 339px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 400; word-wrap: break-word">Kevin Carmona</div>
+                <div style="width: 325px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 275; word-wrap: break-word">+569 4598 1723</div>
+                <a class="whatsapp-link" href="https://wa.me/56945981723" target="_blank">Abrir Contacto</a>
+                <img style="width: 88px; height: 93.30px;" src="{% static 'img/iconcontact1.png' %}" />
+            </div>
+            
+            <div class="contact">
+                <div style="width: 260px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 400; word-wrap: break-word">Jordi Cortes</div>
+                <div style="width: 325px; height: 36px; color: #EB5E28; font-size: 23px; font-family: Arial; font-weight: 275; word-wrap: break-word">+569 4598 1723</div>
+                <a class="whatsapp-link" href="https://wa.me/56945981723" target="_blank">Abrir Contacto</a>
+                <img style="width: 88px; height: 93.30px;" src="{% static 'img/iconcontact1.png' %}" />
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

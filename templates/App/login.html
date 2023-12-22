@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        #backButton {
+            width: 100px;
+            height: 40px;
+            background: #EB5E28;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; position: relative; background: white;">
+
+        <div style="width: 526px; height: 525px; background: #EB5E28; position: absolute; left: 166.68px; top: 267.50px;"></div>
+
+        <img style="width: 556px; height: 800px; position: absolute; left: 134px; top: 268px; filter: grayscale(100%);" src="{% static 'img/worker.png' %}" />
+
+        <div style="width: 551px; height: 1024px; background: #FFFCF2; position: absolute; left: 881px; top: 0px;"></div>
+
+        <img style="width: 96px; height: 98px; position: absolute; left: 1110px; top: 123px;" src="{% static 'img/logo.png' %}" />
+
+        <form method="POST" action="{% url 'login' %}" style="width: 351px; position: absolute; left: 1003px; top: 273px;">
+            {% csrf_token %}
+            <input type="email" name="username" style="width: 100%; height: 50px; margin-bottom: 10px; border-radius: 6px; border: 1px #EB5E28 solid;" placeholder="Usuario" required>
+            <input type="password" name="password" style="width: 100%; height: 50px; margin-bottom: 10px; border-radius: 6px; border: 1px #EB5E28 solid;" placeholder="Contraseña" required>
+            <button type="submit" style="width: 100%; height: 47px; border-radius: 6px; border: 1px #EB5E28 solid; background-color: #EB5E28; color: white; font-size: 20px; font-family: Arial; font-weight: 500;">Iniciar</button>
+        </form>
+
+        <div style="width: 257px; height: 30px; position: absolute; left: 1028px; top: 227px; text-align: center; color: #252422; font-size: 20px; font-family: Arial; font-weight: 500;">¡Bienvenido de vuelta!</div>
+        <div style="width: 466px; height: 56px; position: absolute; left: 197px; top: 110px; text-align: center; color: #252422; font-size: 40px; font-family: Arial; font-weight: 700;">Vinyl_Vista</div>
+
+        <div style="width: 493px; height: 75px; position: absolute; left: 214px; top: 180px; color: #252422; font-size: 18px; font-family: Arial; font-weight: 400;">¡Bienvenido de vuelta! Aquí, no solo encontrarás un sistema de control de inventario, sino un compañero de confianza que te ayudará a transformar el caos en orden.</div>
+    </div>
+    <button id="backButton" onclick="goBack()">Volver</button>
+</body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+</html>

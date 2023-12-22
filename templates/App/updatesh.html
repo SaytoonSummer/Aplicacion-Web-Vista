@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Proveedor</title>
+    <style>
+        #backButton {
+            width: 100px;
+            height: 40px;
+            background: #EB5E28;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+        </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Actor', sans-serif;">
+
+    <div style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; position: relative; background: white;">
+
+        <div style="width: 952px; height: 563px; border-radius: 6px; border: 1px #EB5E28 solid; position: absolute;">
+
+            <form action="{% url 'updatesh' proveedor.id %}" method="POST" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                {% csrf_token %}
+                
+                <div style="width: 100%; text-align: center; margin-top: 2.5%;">
+                    <h2 style="color: #EB5E28; font-size: 24px; font-weight: 600;">Actualizar Proveedor</h2>
+                </div>
+
+                <input type="text" style="width: 80%; height: 43px; margin-bottom: 10px; border-radius: 6px; border: 1px #EB5E28 solid;" placeholder="Nombre del proveedor" name="nombre_proveedor" value="{{ proveedor.nombre_proveedor }}" />
+
+                <input type="text" style="width: 80%; height: 43px; margin-bottom: 10px; border-radius: 6px; border: 1px #EB5E28 solid;" placeholder="Dirección" name="direccion" value="{{ proveedor.direccion }}" />
+
+                <input type="text" pattern="\+56 9 [0-9]{4} [0-9]{4}" title="Formato válido: +56 9 1234 5678" style="width: 80%; height: 43px; margin-bottom: 10px; border-radius: 6px; border: 1px #EB5E28 solid;" placeholder="Teléfono (+56 9 1234 5678)" name="telefono" value="{{ proveedor.telefono }}" />
+
+                <input type="email" style="width: 80%; height: 43px; margin-bottom: 10px; border-radius: 6px; border: 1px #EB5E28 solid;" placeholder="Email" name="email" value="{{ proveedor.email }}" />
+
+                <button type="submit" style="width: 80%; height: 34px; border-radius: 6px; border: 1px #EB5E28 solid; background-color: #EB5E28; color: white; cursor: pointer;">Actualizar</button>
+            </form>
+        
+        </div>
+    </div>
+    <button id="backButton" onclick="goBack()">Volver</button>
+
+</body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</html>
